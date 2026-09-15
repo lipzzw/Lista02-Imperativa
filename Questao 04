@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Q4 {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        String[] vet = new String[15];
+        for(int i = 0; i < vet.length; i++){
+            System.out.println("Digite seu nome");
+            vet[i] = s.nextLine();
+        }
+        for(int i = 15; i > 0; i--){
+            System.out.println(vet[i-1]);
+        }
+
+    }
+}
