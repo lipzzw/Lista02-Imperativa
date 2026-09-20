@@ -1,0 +1,39 @@
+import java.util.Random;
+
+public class Q9matrizes {
+
+    public static void main(String[] args) {
+
+        Random random = new Random();
+
+        int[][] cartela = new int[5][5];
+
+        boolean[] usados = new boolean[100];
+
+        for (int i = 0; i < cartela.length; i++) {
+            for (int j = 0; j < cartela[i].length; j++) {
+
+                int numero;
+
+                do {
+                    numero = random.nextInt(100);
+                } while (usados[numero]);
+
+                cartela[i][j] = numero;
+                usados[numero] = true;
+            }
+        }
+
+        System.out.println("Cartela de Bingo:");
+
+        for (int i = 0; i < cartela.length; i++) {
+            for (int j = 0; j < cartela[i].length; j++) {
+
+                System.out.printf("%2d\t", cartela[i][j]);
+
+            }
+
+            System.out.println();
+        }
+    }
+}
