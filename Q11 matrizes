@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class Q11matrizes {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        double[][] alunos = new double[5][4];
+
+        double somaNotasFinais = 0;
+
+        double maiorNota = -1;
+
+        int matriculaMaior = 0;
+
+        for (int i = 0; i < alunos.length; i++) {
+
+            System.out.println("\nAluno " + (i + 1));
+
+            System.out.print("Digite a matricula: ");
+            alunos[i][0] = sc.nextInt();
+
+            System.out.print("Digite a media das provas: ");
+            alunos[i][1] = sc.nextDouble();
+
+            System.out.print("Digite a media dos trabalhos: ");
+            alunos[i][2] = sc.nextDouble();
+
+            
+            alunos[i][3] = (alunos[i][1] + alunos[i][2]) / 2;
+
+            somaNotasFinais += alunos[i][3];
+
+            
+            if (alunos[i][3] > maiorNota) {
+
+                maiorNota = alunos[i][3];
+
+                matriculaMaior = (int) alunos[i][0];
+
+            }
+        }
+
+        
+        System.out.println("\nInformacoes dos alunos:");
+
+        for (int i = 0; i < alunos.length; i++) {
+
+            System.out.println(
+                "Matricula: " + (int) alunos[i][0] +
+                " | Media provas: " + alunos[i][1] +
+                " | Media trabalhos: " + alunos[i][2] +
+                " | Nota final: " + alunos[i][3]
+            );
+        }
+
+       
+        double mediaFinal = somaNotasFinais / alunos.length;
+
+        System.out.println("\nAluno com maior nota final:");
+        System.out.println("Matricula: " + matriculaMaior);
+        System.out.println("Maior nota final: " + maiorNota);
+
+        System.out.println("\nMedia aritmetica das notas finais: " + mediaFinal);
+
+        sc.close();
+    }
+}
