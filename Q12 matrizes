@@ -1,0 +1,102 @@
+import java.util.Scanner;
+
+public class Q12matrizes {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double[][] m1 = new double[2][2];
+        double[][] m2 = new double[2][2];
+        
+        
+        System.out.println("--- Leitura da Primeira Matriz 2x2 ---");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.printf("M1[%d][%d]: ", i, j);
+                m1[i][j] = scanner.nextDouble();
+            }
+        }
+
+       
+        System.out.println("\n--- Leitura da Segunda Matriz 2x2 ---");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.printf("M2[%d][%d]: ", i, j);
+                m2[i][j] = scanner.nextDouble();
+            }
+        }
+
+        int opcao;
+        do {
+            System.out.println("\n=== MENU DE OPÇÕES ===");
+            System.out.println("a) Somar as duas matrizes (digite 1)");
+            System.out.println("b) Subtrair a primeira matriz da segunda (digite 2)");
+            System.out.println("c) Adicionar uma constante às duas matrizes (digite 3)");
+            System.out.println("d) Imprimir as matrizes (digite 4)");
+            System.out.println("0) Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    double[][] mSoma = new double[2][2];
+                    System.out.println("\n--- Resultado da Soma (M1 + M2) ---");
+                    for (int i = 0; i < 2; i++) {
+                        for (int j = 0; j < 2; j++) {
+                            mSoma[i][j] = m1[i][j] + m2[i][j];
+                            System.out.print(mSoma[i][j] + "\t");
+                        }
+                        System.out.println();
+                    }
+                    break;
+
+                case 2:
+                    double[][] mSub = new double[2][2];
+                    System.out.println("\n--- Resultado da Subtração (M2 - M1) ---");
+                    for (int i = 0; i < 2; i++) {
+                        for (int j = 0; j < 2; j++) {
+                            mSub[i][j] = m2[i][j] - m1[i][j];
+                            System.out.print(mSub[i][j] + "\t");
+                        }
+                        System.out.println();
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("\nDigite o valor da constante a ser adicionada: ");
+                    double constante = scanner.nextDouble();
+                    for (int i = 0; i < 2; i++) {
+                        for (int j = 0; j < 2; j++) {
+                            m1[i][j] += constante;
+                            m2[i][j] += constante;
+                        }
+                    }
+                    System.out.println("Constante adicionada com sucesso!");
+                    break;
+
+                case 4:
+                    System.out.println("\n--- Matriz 1 ---");
+                    imprimirMatriz(m1);
+                    System.out.println("\n--- Matriz 2 ---");
+                    imprimirMatriz(m2);
+                    break;
+
+                case 0:
+                    System.out.println("Encerrando o programa...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        } while (opcao != 0);
+
+        scanner.close();
+    }
+
+    private static void imprimirMatriz(double[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print(matriz[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+}
