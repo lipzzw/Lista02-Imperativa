@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class Q12 {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+       int[] vetor = new int[10];
+        int i = 0;
+
+        while (i < 10) {
+
+            System.out.print("Digite um numero: ");
+            int numero = s.nextInt();
+
+            boolean existe = false;
+
+          
+            for (int j = 0; j < i; j++) {
+                if (vetor[j] == numero) {
+                    existe = true;
+                    break;
+                }
+            }
+
+           
+            if (!existe) {
+                vetor[i] = numero;
+                i++;
+            } else {
+                System.out.println("Esse numero ja foi digitado. Digite outro.");
+            }
+        }
+
+        
+        System.out.println("\nVetor final:");
+
+        for (int j = 0; j < 10; j++) {
+            System.out.print(vetor[j] + " ");
+        }
+    }
+}
