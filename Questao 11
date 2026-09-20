@@ -1,0 +1,41 @@
+import  java.util.Scanner;
+public class Q11 {
+    
+    public static double calcularMedia(int[] v){
+        int soma = 0;
+        for(int i = 0; i < v.length; i++){
+            soma += v[i];
+        }
+        double media = (double) soma/v.length;
+        return media;
+    }
+    public static double calculaSomatorio(int[] v, double media){
+        double somatorio = 0;
+        for(int i = 0; i < v.length; i++){
+            somatorio += Math.pow(v[i] - media, 2);
+        }
+        return somatorio;
+    }
+    public static double desvioPadrao(double somatorio, int quantidade){
+        double dP = Math.sqrt(somatorio/quantidade);
+        return dP;
+    }
+    public static void main(String[] args) {
+        int[] v = new int[10];
+        Scanner s = new Scanner(System.in);
+
+        for(int i = 0; i < v.length; i++){
+            v[i] = s.nextInt();
+        }
+         double media = calcularMedia(v);
+
+        double somatorio = calculaSomatorio(v, media);
+
+        double desvioPadrao = desvioPadrao(somatorio, v.length );
+
+        System.out.println("Média: " + media);
+        System.out.println("Somatório: " + somatorio);
+        System.out.println("Desvio padrão: " + desvioPadrao);
+       
+    }
+}
